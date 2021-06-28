@@ -6,7 +6,7 @@
 #    By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/01 12:18:47 by hugsbord          #+#    #+#              #
-#    Updated: 2021/06/24 19:06:47 by hugsbord         ###   ########.fr        #
+#    Updated: 2021/05/10 14:25:31 by hugsbord         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,18 @@ SRC =	ft_memset.c			\
 		ft_islower.c		\
 		ft_isupper.c		\
 		ft_strrev.c			\
-		ft_putnstr_fd.c	
+		ft_putnstr_fd.c		\
+		ft_lstlast.c		\
+		ft_lstadd_back.c	\
+		ft_lstadd_front.c	\
+		ft_lstclear.c		\
+		ft_lstdelone.c		\
+		ft_lstiter.c		\
+		ft_lstmap.c			\
+		ft_lstnew.c			\
+		ft_lstsize.c		\
+		ft_strtok.c			\
+		ft_itoa.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -70,7 +81,7 @@ $(NAME): $(HEADERS) $(OBJ)
 
 bonus : $(OBJ) $(OBJ_B)
 	@echo "Bonus creation :"
-	@ar rc  $(NAME) $(OBJ) $(OBJ_B)
+	@ar rc $(NAME) $(OBJ) $(OBJ_B)
 	@echo "Done ..."
 	@ranlib $(NAME)
 	@echo "\033[92m$(NAME) with bonus correctly indexed\033[0m"
