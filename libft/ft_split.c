@@ -6,13 +6,13 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 14:18:05 by hugsbord          #+#    #+#             */
-/*   Updated: 2019/11/21 12:32:28 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/06/28 16:53:59 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_nb_words(char const *s, char c)
+static int	ft_nb_words(char const *s, char c)
 {
 	size_t	counter;
 	size_t	i;
@@ -30,7 +30,7 @@ static int		ft_nb_words(char const *s, char c)
 	return (counter);
 }
 
-static char		**ft_add(char const *s, char c, char **tab)
+static char	**ft_add(char const *s, char c, char **tab)
 {
 	size_t		i;
 	size_t		start;
@@ -56,14 +56,13 @@ static char		**ft_add(char const *s, char c, char **tab)
 	return (tab);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**tab;
 
 	if (s == NULL)
 		return (NULL);
-	if (!(tab = (char**)malloc(sizeof(char*) * (ft_nb_words(s, c) + 1))))
-		return (NULL);
+	tab = (char **)ft_calloc(ft_nb_words(s, c) + 1, sizeof(char *));
 	ft_bzero(tab, (ft_nb_words(s, c) + 1));
 	return (ft_add(s, c, tab));
 }

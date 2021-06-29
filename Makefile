@@ -6,7 +6,7 @@
 #    By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/24 18:42:27 by hugsbord          #+#    #+#              #
-#    Updated: 2021/06/28 12:11:19 by hugsbord         ###   ########.fr        #
+#    Updated: 2021/06/29 14:55:27 by hugsbord         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,9 @@ NAME = fractol
 
 SRCS =	./srcs/fractol.c \
 		./srcs/init.c \
+		./srcs/key_event.c \
+		./srcs/julia.c \
+		./srcs/mandelbrot.c \
 		./srcs/exit.c
 
 INC = -I./inc
@@ -40,8 +43,8 @@ $(NAME): $(OBJ)
 	@echo "    42_cursus:          +:+ +:+         +:+"
 	@echo "    FRACT-OL          +#+  +:+       +#+"
 	@echo "                    +#+#+#+#+#+   +#+"
-	@echo "    author:               #+#    #+#"
-	@echo "    hugsbord             ###   ########.fr\033[0m"
+	@echo "                          #+#    #+#"
+	@echo "                         ###   ########.fr\033[0m"
 	@echo "\033[0m"
 	@echo "\033[93m>> Libft compilation\033[0m"
 	@make -C libft

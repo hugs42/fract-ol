@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 17:28:01 by hugsbord          #+#    #+#             */
-/*   Updated: 2019/11/21 17:43:49 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/06/28 17:05:36 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	unsigned int len_2;
+	unsigned int	len_2;
 
 	if (*needle == '\0')
 		return ((char *)haystack);

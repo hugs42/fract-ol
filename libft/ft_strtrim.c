@@ -6,15 +6,15 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 15:38:43 by hugsbord          #+#    #+#             */
-/*   Updated: 2019/11/21 17:35:00 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/06/28 16:49:22 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_is_set(char const c, char const *set)
+static int	ft_is_set(char const c, char const *set)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	while (set[i] != '\0')
@@ -27,7 +27,7 @@ static int		ft_is_set(char const c, char const *set)
 	return (0);
 }
 
-char			*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	min;
 	size_t	max;
@@ -45,7 +45,7 @@ char			*ft_strtrim(char const *s1, char const *set)
 		max--;
 	if (min == max)
 	{
-		buff = (char*)malloc(sizeof(char) * 1);
+		buff = (char *)ft_calloc(1, sizeof(char));
 		buff[0] = '\0';
 		return (buff);
 	}

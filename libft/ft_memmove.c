@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 14:30:08 by hugsbord          #+#    #+#             */
-/*   Updated: 2019/11/14 14:43:14 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/06/28 16:47:51 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	char	*d;
 	char	*s;
 
-	d = (char*)dst;
-	s = (char*)src;
+	d = (char *)dst;
+	s = (char *)src;
 	if (s < d)
 	{
 		while (len--)

@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 14:44:57 by hugsbord          #+#    #+#             */
-/*   Updated: 2019/11/21 12:18:12 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/06/28 16:51:26 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		start = len_s;
 	if (start + len > len_s)
 		len = len_s - start;
-	if (!(new_str = (char *)malloc(sizeof(char) * (len + 1))))
-		return (NULL);
+	new_str = (char *)ft_calloc(len + 1, sizeof(char));
 	ft_memmove(new_str, s + start, len);
 	new_str[len] = '\0';
 	return (new_str);

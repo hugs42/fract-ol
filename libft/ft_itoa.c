@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 14:24:20 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/05/10 14:25:07 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/06/28 16:28:08 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ char	*ft_itoa(int n)
 {
 	char	*str;
 
-	if (!(str = (char *)ft_calloc(2, sizeof(char))))
-		return (NULL);
+	str = (char *)ft_calloc(2, sizeof(char));
 	if (n == -2147483648)
 		return (str = ft_strdup("-2147483648"));
 	if (n < 0)

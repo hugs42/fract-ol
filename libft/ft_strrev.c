@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 17:36:01 by hugsbord          #+#    #+#             */
-/*   Updated: 2020/02/17 12:45:58 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/06/28 16:33:50 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@ char	*ft_strrev(char *s)
 
 	i = 0;
 	x = 0;
-	if (!(str = ft_calloc(ft_strlen(s), sizeof(char))))
-		return (NULL);
-	if (!(tmp = ft_calloc(ft_strlen(s), sizeof(char))))
-		return (NULL);
+	str = ft_calloc(ft_strlen(s), sizeof(char));
+	tmp = ft_calloc(ft_strlen(s), sizeof(char));
 	ft_strlcpy(str, s, ft_strlen(s) + 1);
 	while (str[i] != '\0')
 	{

@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 12:43:25 by hugsbord          #+#    #+#             */
-/*   Updated: 2019/11/10 15:53:20 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/06/28 16:40:52 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void *ptr;
+	void	*ptr;
 
-	if ((ptr = (void *)malloc(count * size)) == NULL)
+	ptr = (void *)malloc(count * size);
+	if (ptr == NULL)
 		return (NULL);
 	if (ptr == 0)
 		return (ptr);

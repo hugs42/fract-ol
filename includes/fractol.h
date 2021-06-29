@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 18:45:40 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/06/28 12:08:50 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/06/29 14:56:04 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@
 #include "./../libft/libft.h"
 
 # define ERROR -1
+# define WIN_W 600
+# define WIN_H 600
+# define KEY_PRESS 2
+# define KEY_RELEASE 3
+# define KEY_EXIT 53
 
 typedef struct		s_event
 {
@@ -49,6 +54,8 @@ typedef struct		s_env
 	t_mlx			*mlx;
 	t_img			*img;
 	t_event			*event;
+	int				screen_w;
+	int				screen_h;
 }					t_env;
 
 int		ft_init_fractol(t_env *env, int fract);
@@ -56,7 +63,18 @@ int		ft_init_env(t_env *env, int fract);
 void	ft_init_mlx(t_env *env);
 void	ft_init_img(t_env *env);
 void	ft_init_event(t_env *env);
-int		check_arg(char *arg);
-int		exit_arg(void);
+int		ft_check_arg(char *arg);
+int		ft_get_size_screen(t_env *env);
+int		ft_key_press(int key, t_env *env);
+int		ft_key_release(int key, t_env *env);
+int		ft_key_event(t_env *env);
+int		ft_julia(t_env *env);
+int		ft_init_julia(t_env *env);
+int		ft_julia_loop(t_env *env);
+int		ft_mandelbrot(t_env *env);
+int		ft_init_mandelbrot(t_env *env);
+int		ft_mandelbrot_loop(t_env *env);
+int		ft_exit_arg(void);
+int		ft_exit(t_env *env);
 
 #endif

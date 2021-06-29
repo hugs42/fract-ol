@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 13:51:51 by hugsbord          #+#    #+#             */
-/*   Updated: 2019/11/14 12:21:22 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/06/28 16:51:55 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memset(void *s, int c, size_t len)
 {
-	char *ptr;
+	char	*ptr;
 
 	ptr = (char *)s;
 	while (len > 0)

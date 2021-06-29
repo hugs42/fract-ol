@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/19 20:49:56 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/04/29 10:55:45 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/06/28 17:09:21 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <string.h>
 
-typedef struct		s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
@@ -70,6 +70,6 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
 void				ft_lstclear(t_list **lst, void (*del)(void *));
 int					ft_lstsize(t_list *lst);
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)
-(void *));
+						(void *));
 char				*ft_strtok(char *str, const char *delim);
 #endif
