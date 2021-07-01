@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 12:40:27 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/06/29 13:02:57 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/06/30 09:54:26 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,13 @@ int	ft_key_press(int key, t_env *env)
 }
 
 int	ft_key_release(int key, t_env *env)
+{
+
+	return (0);
+}
+
+
+int	ft_mouse_hook(t_env *env)
 {
 
 	return (0);
