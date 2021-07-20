@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 12:09:27 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/06/29 13:12:32 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/08 11:51:46 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,17 @@ void	ft_init_event(t_env *env)
 
 int	ft_init_env(t_env *env, int fract)
 {
+	env->x = 0;
+	env->y = 0;
+	env->screen_w = 0;
+	env->screen_h = 0;
+	env->screen_size = 0.0;
+	env->iter = 0;
+	env->color = 0;
+	env->x_center = 0.0;
+	env->y_center = 0.0;
+	env->move_x = 0.0;
+	env->move_y = 0.0;
 	ft_init_mlx(env);
 	ft_init_img(env);
 	ft_init_event(env);
