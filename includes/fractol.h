@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 18:45:40 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/20 10:54:21 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/20 11:57:54 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@
 # define KEY_PRESS 2
 # define KEY_RELEASE 3
 # define KEY_EXIT 53
+# define NEXT_COLOR 13
+# define LAST_COLOR 1
 # define ITER_MAX 300
-
-
 
 typedef struct		s_mandel
 {
@@ -39,6 +39,7 @@ typedef struct		s_mandel
 typedef struct		s_event
 {
 	int				exit;
+	int				color;
 }					t_event;
 
 typedef struct		s_img
@@ -93,7 +94,6 @@ int		ft_key_release(int key, t_env *env);
 int		ft_mouse_hook(t_env *env);
 int		ft_key_event(t_env *env);
 int		ft_julia(t_env *env);
-//int		ft_init_julia(t_env *env, t_julia *julia);
 int		ft_julia_loop(t_env *env);
 int		ft_mandelbrot(t_env *env);
 int		ft_init_mandelbrot(t_env *env);

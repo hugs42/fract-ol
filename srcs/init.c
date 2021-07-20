@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 12:09:27 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/08 11:51:46 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/20 11:38:50 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	ft_init_img(t_env *env)
 void	ft_init_event(t_env *env)
 {
 	env->event = ft_calloc(1, sizeof(t_env));
+	env->event->color = 0;
 	env->event->exit = 0;
 }
 

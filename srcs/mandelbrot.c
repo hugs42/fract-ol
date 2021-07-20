@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 13:40:07 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/20 10:56:08 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/20 11:47:55 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@ int	ft_calcul_points(t_env *env)
 	double	y;
 	double x_new;
 
-	x = 0;
-	y = 0;
-	x_new = 0;
+	x = 0.0;
+	y = 0.0;
+	x_new = 0.0;
 	env->iter = 0;
+	int i = 0;
 	env->z_re = (env->col - env->screen_w / 2.0) * 4.0 / env->screen_w;
 	env->z_im = (env->row - env->screen_h / 2.0) * 4.0 / env->screen_w;
 	while (env->iter < ITER_MAX && x * x + y * y <= 4)
@@ -30,23 +31,26 @@ int	ft_calcul_points(t_env *env)
 		y = 2 * x * y + env->z_im;
 		x = x_new;
 		env->iter++;
+		i++;
 	}
-	return (0);
+	return (env->iter);
 }
 
 int	ft_calcul_mandelbrot(t_env *env)
 {
+	int color = 0;
 	env->row = 0;
 	while (env->row < env->screen_h)
 	{
 		env->col = 0;
 		while (env->col < env->screen_w)
 		{
-			ft_calcul_points(env);
 			if (env->iter < ITER_MAX)
-				env->img->addr[env->row * env->img->size_l / 4 + env->col] = 0xFFFFFF;
+				env->img->addr[env->row * env->img->size_l / 4 + env->col] =
+					env->color * ft_calcul_points(env);
 			else
-				env->img->addr[env->row * env->img->size_l / 4 + env->col] = 0xFFF;
+				env->img->addr[env->row * env->img->size_l / 4 + env->col] =
+					env->color * ft_calcul_points(env);
 			env->col++;
 		}
 		env->row++;
@@ -57,7 +61,6 @@ int	ft_calcul_mandelbrot(t_env *env)
 int	ft_mandelbrot_loop(t_env *env)
 {
 	ft_key_event(env);
-
 	ft_calcul_mandelbrot(env);
 	mlx_put_image_to_window(env->mlx->mlx_ptr, env->mlx->win, env->img->img_ptr, 0, 0);
 	return (0);
@@ -72,7 +75,7 @@ int	ft_init_mandelbrot(t_env *env)
 	env->col = 0;
 	env->z_re = 0;
 	env->z_im = 0;
-	env->iter = 0;
+	env->iter = 150;
 	env->mlx->win = mlx_new_window(env->mlx->mlx_ptr, env->screen_w,
 						env->screen_h, "fractol: Mandelbrot");
 	env->img->img_ptr = mlx_new_image(env->mlx->mlx_ptr, env->screen_w,
