@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 18:45:40 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/20 21:10:38 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/20 21:40:32 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@
 # define KEY_EXIT 53
 # define NEXT_COLOR 13
 # define LAST_COLOR 1
+# define ARROW_UP 126
+# define ARROW_DOWN 125
+# define ARROW_LEFT 123
+# define ARROW_RIGHT 124
 # define ITER_MAX 300
 
 typedef struct		s_mandel

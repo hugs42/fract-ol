@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 12:40:27 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/20 21:22:46 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/20 21:49:50 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,17 +60,18 @@ int	ft_key_press(int key, t_env *env)
 {
 	if (key == KEY_EXIT)
 		env->event->exit = 1;
-	if (key == NEXT_COLOR || key == LAST_COLOR)
+	else if (key == NEXT_COLOR || key == LAST_COLOR)
 		ft_color_scheme(env, key);
+	else if (key == ARROW_UP)
+		env->move_y -= 0.05 * env->zoom;
+	else if (key == ARROW_DOWN)
+		env->move_y += 0.05 * env->zoom;
+	else if (key == ARROW_RIGHT)
+		env->move_x += 0.05 * env->zoom;
+	else if (key == ARROW_LEFT)
+		env->move_x -= 0.05 * env->zoom;
 	return (0);
 }
-
-int	ft_key_release(int key, t_env *env)
-{
-
-	return (0);
-}
-
 
 int	ft_mouse_hook(int key, int x, int y, t_env *env)
 {

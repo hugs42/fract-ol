@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 13:40:07 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/20 21:14:57 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/20 21:53:51 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int	ft_calcul_points(t_env *env)
 	env->y = 0.0;
 	x_new = 0.0;
 	env->iter = 0;
-	env->z_re = (env->col - env->screen_w / 2.0) * 4.0 / env->screen_w * env->zoom;
-	env->z_im = (env->row - env->screen_h / 2.0) * 4.0 / env->screen_w * env->zoom;
+	env->z_re = (env->col - env->screen_w / 2.0) * 4.0 / env->screen_w * env->zoom + env->move_x;
+	env->z_im = (env->row - env->screen_h / 2.0) * 4.0 / env->screen_w * env->zoom + env->move_y;
 	while (env->iter < ITER_MAX && env->x * env->x + env->y * env->y <= 4)
 	{
 		x_new = env->x * env->x - env->y * env->y + env->z_re;
@@ -87,7 +87,6 @@ int	ft_mandelbrot(t_env *env)
 	ft_init_mandelbrot(env);
 	mlx_loop_hook(env->mlx->mlx_ptr, &ft_mandelbrot_loop, env);
 	mlx_hook(env->mlx->win, KEY_PRESS, 0, &ft_key_press, env);
-	mlx_hook(env->mlx->win, KEY_RELEASE, 0, &ft_key_release, env);
 	mlx_mouse_hook(env->mlx->win, ft_mouse_hook, env);
 	mlx_hook(env->mlx->win, 17, 0, &ft_exit, env);
 	mlx_loop(env->mlx->mlx_ptr);

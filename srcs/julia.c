@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 13:39:44 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/20 10:54:52 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/20 21:52:37 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int	ft_julia(t_env *env)
 	ft_init_julia(env);
 	mlx_loop_hook(env->mlx->mlx_ptr, &ft_julia_loop, env);
 	mlx_hook(env->mlx->win, KEY_PRESS, 0, &ft_key_press, env);
-	mlx_hook(env->mlx->win, KEY_RELEASE, 0, &ft_key_release, env);
 	mlx_mouse_hook(env->mlx->win, ft_mouse_hook, env);
 	mlx_hook(env->mlx->win, 17, 0, &ft_exit, env);
 	mlx_loop(env->mlx->mlx_ptr);
