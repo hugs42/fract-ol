@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 18:45:40 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/20 11:57:54 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/20 21:10:38 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ typedef struct		s_mandel
 typedef struct		s_event
 {
 	int				exit;
-	int				color;
 }					t_event;
 
 typedef struct		s_img
@@ -72,9 +71,6 @@ typedef struct		s_env
 	int				color;
 	int				screen_w;
 	int				screen_h;
-	float			screen_size;
-	float			x_center;
-	float			y_center;
 	double			z_re;
 	double			z_im;
 	double			move_x;
@@ -91,7 +87,7 @@ int		ft_check_arg(char *arg);
 int		ft_get_size_screen(t_env *env);
 int		ft_key_press(int key, t_env *env);
 int		ft_key_release(int key, t_env *env);
-int		ft_mouse_hook(t_env *env);
+int		ft_mouse_hook(int key, int x, int y, t_env *env);
 int		ft_key_event(t_env *env);
 int		ft_julia(t_env *env);
 int		ft_julia_loop(t_env *env);

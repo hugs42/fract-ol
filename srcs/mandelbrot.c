@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 13:40:07 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/20 11:47:55 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/20 21:14:57 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,20 @@
 
 int	ft_calcul_points(t_env *env)
 {
-	double	x;
-	double	y;
 	double x_new;
 
-	x = 0.0;
-	y = 0.0;
+	env->x = 0.0;
+	env->y = 0.0;
 	x_new = 0.0;
 	env->iter = 0;
-	int i = 0;
-	env->z_re = (env->col - env->screen_w / 2.0) * 4.0 / env->screen_w;
-	env->z_im = (env->row - env->screen_h / 2.0) * 4.0 / env->screen_w;
-	while (env->iter < ITER_MAX && x * x + y * y <= 4)
+	env->z_re = (env->col - env->screen_w / 2.0) * 4.0 / env->screen_w * env->zoom;
+	env->z_im = (env->row - env->screen_h / 2.0) * 4.0 / env->screen_w * env->zoom;
+	while (env->iter < ITER_MAX && env->x * env->x + env->y * env->y <= 4)
 	{
-		x_new = x * x - y * y + env->z_re;
-		y = 2 * x * y + env->z_im;
-		x = x_new;
+		x_new = env->x * env->x - env->y * env->y + env->z_re;
+		env->y = 2 * env->x * env->y + env->z_im;
+		env->x = x_new;
 		env->iter++;
-		i++;
 	}
 	return (env->iter);
 }
@@ -68,14 +64,13 @@ int	ft_mandelbrot_loop(t_env *env)
 
 int	ft_init_mandelbrot(t_env *env)
 {
-	env->x_center = env->screen_w / 2;
-	env->y_center = env->screen_h / 2;
 	env->color = 0x00003F;
 	env->row = 0;
 	env->col = 0;
 	env->z_re = 0;
 	env->z_im = 0;
-	env->iter = 150;
+	env->iter = 0;
+	env->zoom = 1;
 	env->mlx->win = mlx_new_window(env->mlx->mlx_ptr, env->screen_w,
 						env->screen_h, "fractol: Mandelbrot");
 	env->img->img_ptr = mlx_new_image(env->mlx->mlx_ptr, env->screen_w,
