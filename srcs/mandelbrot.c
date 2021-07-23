@@ -6,13 +6,13 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 13:40:07 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/20 21:53:51 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/23 10:54:26 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../includes/fractol.h"
 
-int	ft_calcul_points(t_env *env)
+int	ft_calcul_man_points(t_env *env)
 {
 	double x_new;
 
@@ -43,10 +43,10 @@ int	ft_calcul_mandelbrot(t_env *env)
 		{
 			if (env->iter < ITER_MAX)
 				env->img->addr[env->row * env->img->size_l / 4 + env->col] =
-					env->color * ft_calcul_points(env);
+					env->color * ft_calcul_man_points(env);
 			else
 				env->img->addr[env->row * env->img->size_l / 4 + env->col] =
-					env->color * ft_calcul_points(env);
+					env->color * ft_calcul_man_points(env);
 			env->col++;
 		}
 		env->row++;

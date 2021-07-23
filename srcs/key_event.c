@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 12:40:27 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/20 21:49:50 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/21 10:31:30 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_select_color(t_env *env, int i)
 	else if (i == 7)
 		env->color = 0xcccc29;
 	else if (i == 8)
-		env->color = 0x0fff909;
+		env->color = 0xc09ff9;
 	else if (i == 9)
 		env->color = 0x23fff;
 	return (0);
@@ -77,14 +77,14 @@ int	ft_mouse_hook(int key, int x, int y, t_env *env)
 {
 	if (key == 4)
 	{
-		env->zoom *= 0.5;
+		env->zoom *= 0.9;
 		if (x == 1000)
 			env->x = 100;
 		else if (y == 1000)
 			env->y = 100;
 	}
 	if (key == 5)
-		env->zoom /=  0.5;
+		env->zoom /=  0.9;
 	return (0);
 }
 
