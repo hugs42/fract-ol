@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 18:42:59 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/20 21:53:39 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/26 10:48:03 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,12 @@ int	ft_fractol(t_env *env, int fract)
 
 int	ft_check_arg(char *arg)
 {
-	if (((ft_strncmp(arg, "Julia", 5) == 0) && (ft_strlen(arg) == 5)) ||
-		((ft_strncmp(arg, "julia", 5) == 0) && (ft_strlen(arg) == 5)))
+	if (((ft_strncmp(arg, "Julia", 5) == 0) && (ft_strlen(arg) == 5))
+		|| ((ft_strncmp(arg, "julia", 5) == 0) && (ft_strlen(arg) == 5)))
 		return (1);
-	else if (((ft_strncmp(arg, "Mandelbrot", 10) == 0) && (ft_strlen(arg) ==
-	10)) || ((ft_strncmp(arg, "mandelbrot", 10) == 0) && (ft_strlen(arg) == 10)))
+	else if (((ft_strncmp(arg, "Mandelbrot", 10) == 0) && (ft_strlen(arg)
+				== 10)) || ((ft_strncmp(arg, "mandelbrot", 10) == 0)
+			&& (ft_strlen(arg) == 10)))
 		return (2);
 	return (0);
 }

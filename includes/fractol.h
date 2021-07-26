@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 18:45:40 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/26 10:01:50 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/26 10:53:40 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,7 @@
 # define ARROW_RIGHT 124
 # define ITER_MAX 1000
 
-typedef struct		s_mandel
-{
-	int				old_x;
-	int				old_y;
-}					t_mandel;
-
-typedef struct		s_event
-{
-	int				exit;
-}					t_event;
-
-typedef struct		s_img
+typedef struct s_img
 {
 	int				*addr;
 	int				size_l;
@@ -56,17 +45,17 @@ typedef struct		s_img
 	void			*img_ptr;
 }					t_img;
 
-typedef struct		s_mlx
+typedef struct s_mlx
 {
 	void			*mlx_ptr;
 	void			*win;
 }					t_mlx;
 
-typedef struct		s_env
+typedef struct s_env
 {
 	t_mlx			*mlx;
 	t_img			*img;
-	t_event			*event;
+//	t_event			*event;
 	double			x;
 	double			y;
 	int				row;
@@ -80,6 +69,7 @@ typedef struct		s_env
 	double			move_x;
 	double			move_y;
 	double			zoom;
+	int				exit;
 }					t_env;
 
 int		ft_init_fractol(t_env *env, int fract);

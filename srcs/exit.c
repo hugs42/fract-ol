@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 22:14:14 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/06/29 13:04:07 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/26 10:54:11 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 int	ft_exit(t_env *env)
 {
-	if (env->event)
-		free(env->event);
 	if (env->img)
 		free(env->img);
 	if (env->mlx)
