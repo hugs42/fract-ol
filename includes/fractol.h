@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 18:45:40 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/21 10:33:35 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/26 10:01:50 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,14 +92,17 @@ int		ft_get_size_screen(t_env *env);
 int		ft_key_press(int key, t_env *env);
 int		ft_key_release(int key, t_env *env);
 int		ft_mouse_hook(int key, int x, int y, t_env *env);
+int		ft_mouse_julia(int x, int y, t_env *env);
+int		ft_jul_mouse_hook(int key, int x, int y, t_env *env);
 int		ft_key_event(t_env *env);
 int		ft_julia(t_env *env);
 int		ft_julia_loop(t_env *env);
+int		ft_calcul_jul_points(t_env *env);
+int		ft_jul_mouse_hook(int key, int x, int y, t_env *env);
 int		ft_mandelbrot(t_env *env);
 int		ft_init_mandelbrot(t_env *env);
 int		ft_mandelbrot_loop(t_env *env);
-double	*ft_mult_complex(double *z1, double *z2);
-double	*ft_add_complex(double *z1, double *z2);
+int		ft_color_scheme(t_env *env, int key);
 int		ft_exit_arg(void);
 int		ft_exit(t_env *env);
 

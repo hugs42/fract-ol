@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 13:39:44 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/23 13:27:34 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/26 10:10:45 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,9 @@ int	ft_calcul_jul_points(t_env *env)
 	env->y = 0.0;
 	x_new = 0.0;
 	env->iter = 0;
-	env->y = 1.5 * (env->row - env->screen_w / 2.0) / (0.5 * env->zoom * env->screen_w) + env->move_x;
+	env->y = 1.0 * (env->row - env->screen_w / 2.0) / (0.5 * env->zoom * env->screen_w) + env->move_x;
 	env->x = 1.0 * (env->col - env->screen_h / 2.0) / (0.5 * env->zoom * env->screen_h) + env->move_y;
-	env->z_re = -0.7;
-	env->z_im = 0.27015;
-	while (env->iter < ITER_MAX && env->x * env->x + env->y * env->y <= 4)
+	while (env->iter < ITER_MAX && env->x * env->x + env->y * env->y <= 10)
 	{
 		x_new = env->x * env->x - env->y * env->y + env->z_re;
 		env->y = 2 * env->x * env->y + env->z_im;
@@ -66,6 +64,8 @@ int	ft_julia_loop(t_env *env)
 
 int	ft_init_julia(t_env *env)
 {
+	env->z_re = 0.7;
+	env->z_im = 0.37015;
 	env->zoom = 1;
 	env->x = 0;
 	env->y = 0;
@@ -86,7 +86,8 @@ int	ft_julia(t_env *env)
 	ft_init_julia(env);
 	mlx_loop_hook(env->mlx->mlx_ptr, &ft_julia_loop, env);
 	mlx_hook(env->mlx->win, KEY_PRESS, 0, &ft_key_press, env);
-	mlx_mouse_hook(env->mlx->win, ft_mouse_hook, env);
+	mlx_hook(env->mlx->win, 6, 0, ft_mouse_julia, env);
+	mlx_mouse_hook(env->mlx->win, ft_jul_mouse_hook, env);
 	mlx_hook(env->mlx->win, 17, 0, &ft_exit, env);
 	mlx_loop(env->mlx->mlx_ptr);
 	return (0);

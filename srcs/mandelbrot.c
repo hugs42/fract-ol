@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 13:40:07 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/23 10:54:26 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/26 10:17:48 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_calcul_man_points(t_env *env)
 	env->iter = 0;
 	env->z_re = (env->col - env->screen_w / 2.0) * 4.0 / env->screen_w * env->zoom + env->move_x;
 	env->z_im = (env->row - env->screen_h / 2.0) * 4.0 / env->screen_w * env->zoom + env->move_y;
-	while (env->iter < ITER_MAX && env->x * env->x + env->y * env->y <= 4)
+	while (env->iter < ITER_MAX && env->x * env->x + env->y * env->y <= 10)
 	{
 		x_new = env->x * env->x - env->y * env->y + env->z_re;
 		env->y = 2 * env->x * env->y + env->z_im;
