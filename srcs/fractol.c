@@ -5,68 +5,109 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/24 18:42:59 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/26 10:48:03 by hugsbord         ###   ########.fr       */
+/*   Created: 2021/06/29 13:40:07 by hugsbord          #+#    #+#             */
+/*   Updated: 2021/07/27 13:07:10 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../includes/fractol.h"
 
-int	ft_get_size_screen(t_env *env)
+int	ft_iter(t_env *env)
 {
-	int		max_width;
-	int		max_height;
+	double	x_new;
 
-	max_width = 0;
-	max_height = 0;
-	mlx_get_screen_size(env->mlx->mlx_ptr, &max_width, &max_height);
-	if (env->screen_w > max_width)
-		env->screen_w = max_width;
-	if (env->screen_h > max_height)
-		env->screen_h = max_height;
+	env->x = 0.0;
+	env->y = 0.0;
+	x_new = 0.0;
+	env->iter = 0;
+	if (env->fract == 1)
+		ft_julia_setting(env);
+	else if (env->fract == 2 || env->fract == 3)
+		ft_setting(env);
+	while (env->iter < ITER_MAX && env->x * env->x + env->y * env->y <= 4)
+	{
+		x_new = env->x * env->x - env->y * env->y + env->z_re;
+		if (env->fract == 3)
+			env->y = fabs(2 * env->x * env->y) + env->z_im;
+		else
+			env->y = 2 * env->x * env->y + env->z_im;
+		env->x = x_new;
+		env->iter++;
+	}
+	return (env->iter);
+}
+
+int	ft_calcul_fractol(t_env *env)
+{
+	env->row = 0;
+	mlx_clear_window(env->img->addr, env->mlx->win);
+	while (env->row < env->screen_h)
+	{
+		env->col = 0;
+		while (env->col < env->screen_w)
+		{
+			if (env->iter < ITER_MAX)
+				env->img->addr[env->row * env->img->size_l / 4 + env->col]
+					= env->color * ft_iter(env);
+			else
+				env->img->addr[env->row * env->img->size_l / 4 + env->col]
+					= env->color * ft_iter(env);
+			env->col++;
+		}
+		env->row++;
+	}
 	return (0);
 }
 
-int	ft_fractol(t_env *env, int fract)
+int	ft_fractol_loop(t_env *env)
 {
-	if (fract == 1)
-		ft_julia(env);
-	else if (fract == 2)
-		ft_mandelbrot(env);
-	ft_exit(env);
+	ft_calcul_fractol(env);
+	mlx_put_image_to_window(env->mlx->mlx_ptr, env->mlx->win,
+		env->img->img_ptr, 0, 0);
 	return (0);
 }
 
-int	ft_check_arg(char *arg)
+int	ft_init_fractol(t_env *env)
 {
-	if (((ft_strncmp(arg, "Julia", 5) == 0) && (ft_strlen(arg) == 5))
-		|| ((ft_strncmp(arg, "julia", 5) == 0) && (ft_strlen(arg) == 5)))
-		return (1);
-	else if (((ft_strncmp(arg, "Mandelbrot", 10) == 0) && (ft_strlen(arg)
-				== 10)) || ((ft_strncmp(arg, "mandelbrot", 10) == 0)
-			&& (ft_strlen(arg) == 10)))
-		return (2);
+	env->iter = 0;
+	env->zoom = 1;
+	if (env->fract == 1)
+	{
+		env->z_re = -0.7;
+		env->z_im = 0.27015;
+	}
+	if (env->fract == 1)
+		env->mlx->win = mlx_new_window(env->mlx->mlx_ptr, env->screen_w,
+				env->screen_h, "fractol: Julia");
+	else if (env->fract == 2)
+		env->mlx->win = mlx_new_window(env->mlx->mlx_ptr, env->screen_w,
+				env->screen_h, "fractol: Mandelbrot");
+	else if (env->fract == 3)
+		env->mlx->win = mlx_new_window(env->mlx->mlx_ptr, env->screen_w,
+				env->screen_h, "fractol: Burning ship");
+	env->img->img_ptr = mlx_new_image(env->mlx->mlx_ptr, env->screen_w,
+			env->screen_h);
+	env->img->addr = (int *)mlx_get_data_addr(env->img->img_ptr,
+			&env->img->bpp, &env->img->size_l, &env->img->endian);
 	return (0);
 }
 
-int	main(int argc, char **argv)
+int	ft_fractol(t_env *env)
 {
-	int		fract;
-	t_env	env;
-
-	fract = 0;
-	if (argc != 2)
-		ft_exit_arg();
+	ft_init_fractol(env);
+	mlx_loop_hook(env->mlx->mlx_ptr, &ft_fractol_loop, env);
+	if (env->fract == 1)
+	{
+		mlx_hook(env->mlx->win, KEY_PRESS, 0, &ft_jul_key_press, env);
+		mlx_hook(env->mlx->win, 6, 0, ft_mouse_julia, env);
+		mlx_mouse_hook(env->mlx->win, ft_jul_mouse_hook, env);
+	}
 	else
 	{
-		fract = ft_check_arg(argv[1]);
-		if (fract != 1 && fract != 2)
-			ft_exit_arg();
-		else
-		{
-			ft_init_fractol(&env, fract);
-			ft_fractol(&env, fract);
-		}
+		mlx_hook(env->mlx->win, KEY_PRESS, 0, &ft_key_press, env);
+		mlx_mouse_hook(env->mlx->win, ft_mouse_hook, env);
 	}
+	mlx_hook(env->mlx->win, 17, 0, &ft_exit, env);
+	mlx_loop(env->mlx->mlx_ptr);
 	return (0);
 }

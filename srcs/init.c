@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 12:09:27 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/26 10:57:36 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/27 12:48:01 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,15 @@ int	ft_init_env(t_env *env, int fract)
 {
 	env->x = 0;
 	env->y = 0;
-	env->screen_w = 0;
-	env->screen_h = 0;
+	env->col = 0;
+	env->row = 0;
+	env->z_re = 0;
+	env->z_im = 0;
 	env->iter = 0;
-	env->color = 0;
+	env->color = 0x0003F;
 	env->move_x = 0.0;
 	env->move_y = 0.0;
-	env->exit = 0;
+	env->fract = 0;
 	ft_init_mlx(env);
 	ft_init_img(env);
 	env->screen_w = WIN_W;
@@ -48,10 +50,9 @@ int	ft_init_env(t_env *env, int fract)
 	return (0);
 }
 
-int	ft_init_fractol(t_env *env, int fract)
+int	ft_init(t_env *env, int fract)
 {
 	ft_init_env(env, fract);
 	env->mlx->mlx_ptr = mlx_init();
-	ft_get_size_screen(env);
 	return (0);
 }

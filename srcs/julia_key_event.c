@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 18:29:30 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/26 10:56:20 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/26 12:06:17 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 int	ft_jul_key_press(int key, t_env *env)
 {
 	if (key == KEY_EXIT)
-		env->exit = 1;
+		ft_exit(env);
 	else if (key == NEXT_COLOR || key == LAST_COLOR)
 		ft_color_scheme(env, key);
 	else if (key == ARROW_UP)
-		env->move_y -= 0.05 * env->zoom;
-	else if (key == ARROW_DOWN)
-		env->move_y += 0.05 * env->zoom;
-	else if (key == ARROW_RIGHT)
-		env->move_x += 0.05 * env->zoom;
-	else if (key == ARROW_LEFT)
 		env->move_x -= 0.05 * env->zoom;
+	else if (key == ARROW_DOWN)
+		env->move_x += 0.05 * env->zoom;
+	else if (key == ARROW_RIGHT)
+		env->move_y += 0.05 * env->zoom;
+	else if (key == ARROW_LEFT)
+		env->move_y -= 0.05 * env->zoom;
 	return (0);
 }
 
@@ -43,14 +43,14 @@ int	ft_jul_mouse_hook(int key, int x, int y, t_env *env)
 {
 	if (key == 4)
 	{
-		env->zoom *= 0.9;
+		env->zoom /= 0.99;
 		if (x == 1000)
 			env->x = 100;
 		else if (y == 1000)
 			env->y = 100;
 	}
 	if (key == 5)
-		env->zoom /= 0.9;
+		env->zoom *= 0.99;
 	if (key == 1)
 	{
 		env->z_re = -0.7;

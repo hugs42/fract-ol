@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot_key_event.c                             :+:      :+:    :+:   */
+/*   key_event.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 12:40:27 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/26 10:54:56 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/26 11:45:59 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	ft_color_scheme(t_env *env, int key)
 int	ft_key_press(int key, t_env *env)
 {
 	if (key == KEY_EXIT)
-		env->exit = 1;
+		ft_exit(env);
 	else if (key == NEXT_COLOR || key == LAST_COLOR)
 		ft_color_scheme(env, key);
 	else if (key == ARROW_UP)
@@ -85,12 +85,5 @@ int	ft_mouse_hook(int key, int x, int y, t_env *env)
 	}
 	if (key == 5)
 		env->zoom /= 0.9;
-	return (0);
-}
-
-int	ft_key_event(t_env *env)
-{
-	if (env->exit == 1)
-		ft_exit(env);
 	return (0);
 }
