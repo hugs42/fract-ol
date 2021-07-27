@@ -6,16 +6,13 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 18:45:40 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/27 17:35:50 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/27 18:25:19 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # ifndef FRACTOL_H
 # define FRACTOL_H
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
 #include <math.h>
 #include <mlx.h>
 #include "./../libft/libft.h"
@@ -27,12 +24,11 @@
 # define KEY_RELEASE 3
 # define KEY_EXIT 53
 # define NEXT_COLOR 13
-# define LAST_COLOR 1
+# define LAST_COLOR 12
 # define ARROW_UP 126
 # define ARROW_DOWN 125
 # define ARROW_LEFT 123
 # define ARROW_RIGHT 124
-# define ITER_MAX 300
 
 typedef struct s_img
 {
@@ -60,6 +56,7 @@ typedef struct s_env
 	int				row;
 	int				col;
 	unsigned int	iter;
+	unsigned int	iter_max;
 	int				color;
 	int				screen_w;
 	int				screen_h;

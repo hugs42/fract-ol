@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 17:22:26 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/27 17:37:49 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/27 18:11:49 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	ft_iter(t_env *env)
 
 	x_new = 0.0;
 	ft_define_complex(env);
-	while (env->iter < ITER_MAX && env->x * env->x + env->y * env->y <= 4)
+	while (env->iter < env->iter_max && env->x * env->x + env->y * env->y <= 4)
 	{
 		if (env->fract == 4)
 			x_new = (env->x * env->x * env->x) - 3 * env->x * env->y
