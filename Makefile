@@ -6,7 +6,7 @@
 #    By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/24 18:42:27 by hugsbord          #+#    #+#              #
-#    Updated: 2021/07/27 12:57:34 by hugsbord         ###   ########.fr        #
+#    Updated: 2021/07/27 17:27:45 by hugsbord         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = fractol
 SRCS =	./srcs/main.c \
 		./srcs/init.c \
 		./srcs/fractol.c \
-		./srcs/setting.c \
+		./srcs/iteration.c \
 		./srcs/key_event.c \
 		./srcs/julia_key_event.c \
 		./srcs/exit.c

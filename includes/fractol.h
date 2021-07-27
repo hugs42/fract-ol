@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 18:45:40 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/27 12:57:01 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/27 17:35:50 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ int		ft_jul_key_press(int key, t_env *env);
 int		ft_setting(t_env *env);
 int		ft_julia_setting(t_env *env);
 int		ft_fractol(t_env *env);
+int		ft_iter(t_env *env);
+void	ft_refresh_screen(t_env *env);
 int		ft_color_scheme(t_env *env, int key);
 int		ft_exit_arg(void);
 int		ft_exit(t_env *env);

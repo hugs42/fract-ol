@@ -6,41 +6,15 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 13:40:07 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/27 13:07:10 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/27 17:35:12 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../includes/fractol.h"
 
-int	ft_iter(t_env *env)
-{
-	double	x_new;
-
-	env->x = 0.0;
-	env->y = 0.0;
-	x_new = 0.0;
-	env->iter = 0;
-	if (env->fract == 1)
-		ft_julia_setting(env);
-	else if (env->fract == 2 || env->fract == 3)
-		ft_setting(env);
-	while (env->iter < ITER_MAX && env->x * env->x + env->y * env->y <= 4)
-	{
-		x_new = env->x * env->x - env->y * env->y + env->z_re;
-		if (env->fract == 3)
-			env->y = fabs(2 * env->x * env->y) + env->z_im;
-		else
-			env->y = 2 * env->x * env->y + env->z_im;
-		env->x = x_new;
-		env->iter++;
-	}
-	return (env->iter);
-}
-
 int	ft_calcul_fractol(t_env *env)
 {
 	env->row = 0;
-	mlx_clear_window(env->img->addr, env->mlx->win);
 	while (env->row < env->screen_h)
 	{
 		env->col = 0;
@@ -61,6 +35,7 @@ int	ft_calcul_fractol(t_env *env)
 
 int	ft_fractol_loop(t_env *env)
 {
+	ft_refresh_screen(env);
 	ft_calcul_fractol(env);
 	mlx_put_image_to_window(env->mlx->mlx_ptr, env->mlx->win,
 		env->img->img_ptr, 0, 0);
@@ -85,6 +60,9 @@ int	ft_init_fractol(t_env *env)
 	else if (env->fract == 3)
 		env->mlx->win = mlx_new_window(env->mlx->mlx_ptr, env->screen_w,
 				env->screen_h, "fractol: Burning ship");
+	else if (env->fract == 4)
+		env->mlx->win = mlx_new_window(env->mlx->mlx_ptr, env->screen_w,
+				env->screen_h, "fractol: Multibrot");
 	env->img->img_ptr = mlx_new_image(env->mlx->mlx_ptr, env->screen_w,
 			env->screen_h);
 	env->img->addr = (int *)mlx_get_data_addr(env->img->img_ptr,
