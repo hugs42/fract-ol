@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 12:40:27 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/27 18:31:23 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/28 16:16:38 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,16 +77,12 @@ int	ft_mouse_hook(int key, int x, int y, t_env *env)
 {
 	if (key == 4)
 	{
-		env->iter_max += 2;
+		env->iter_max += 3;
 		env->zoom *= 0.9;
-		if (x == 1000)
-			env->x = 100;
-		else if (y == 1000)
-			env->y = 100;
 	}
 	if (key == 5)
 	{
-		env->iter_max -= 2;
+		env->iter_max -= 3;
 		env->zoom /= 0.9;
 	}
 	return (0);

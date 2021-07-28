@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 18:45:40 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/27 18:25:19 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/28 16:14:51 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@
 # define ARROW_DOWN 125
 # define ARROW_LEFT 123
 # define ARROW_RIGHT 124
+# define JULIA 1
+# define MANDEL 2
+# define BURNING 3
+# define MULTI 4
 
 typedef struct s_img
 {

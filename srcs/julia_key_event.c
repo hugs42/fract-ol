@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 18:29:30 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/27 18:33:49 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/28 10:33:26 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,12 @@ int	ft_mouse_julia(int x, int y, t_env *env)
 
 int	ft_jul_mouse_hook(int key, int x, int y, t_env *env)
 {
+	x = 0;
+	y = 0;
 	if (key == 4)
 	{
 		env->iter_max += 2;
-		env->zoom /= 0.9;
-		if (x == 1000)
-			env->x = 100;
-		else if (y == 1000)
-			env->y = 100;
+		env->zoom /= 0.9 ;
 	}
 	if (key == 5)
 	{
@@ -57,7 +55,7 @@ int	ft_jul_mouse_hook(int key, int x, int y, t_env *env)
 	}
 	if (key == 1)
 	{
-		env->iter_max = 300;
+		env->iter_max = 150;
 		env->z_re = -0.7;
 		env->z_im = 0.27015;
 	}
