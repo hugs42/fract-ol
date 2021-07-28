@@ -25,10 +25,12 @@ INC = -I./inc
 
 FLAGS = -Wall -Wextra -Werror
 
-LIBS=$(LIBS_MAC)
+LIBS=$(LIBS_LINUX)
 MLX_D = ./minilibx_opengl_macOS
 
 LIBS_MAC =-L ./libft -lft -L $(MLX_D) -lmlx -framework OpenGL -framework AppKit
+
+LIBS_LINUX =-L ./libft -L $(MLX_D) -lft -lmlx -lm -lbsd -lX11 -lXext
 
 OBJ=$(SRCS:.c=.o)
 

@@ -76,16 +76,19 @@ int	ft_fractol(t_env *env)
 	mlx_loop_hook(env->mlx->mlx_ptr, &ft_fractol_loop, env);
 	if (env->fract == 1)
 	{
-		mlx_hook(env->mlx->win, KEY_PRESS, 0, &ft_jul_key_press, env);
-		mlx_hook(env->mlx->win, 6, 0, ft_mouse_julia, env);
-		mlx_mouse_hook(env->mlx->win, ft_jul_mouse_hook, env);
+		mlx_hook(env->mlx->win, KEY_PRESS, 1L << 0, &ft_jul_key_press, env);
+
+//		mlx_hook(env->mlx->win, KEY_PRESS, 0, &ft_jul_key_press, env);
+//		mlx_hook(env->mlx->win, 6, 0, ft_mouse_julia, env);
+//		mlx_mouse_hook(env->mlx->win, ft_jul_mouse_hook, env);
 	}
 	else
 	{
-		mlx_hook(env->mlx->win, KEY_PRESS, 0, &ft_key_press, env);
+		mlx_hook(env->mlx->win, KEY_PRESS, 1L << 0, &ft_key_press, env);
 		mlx_mouse_hook(env->mlx->win, ft_mouse_hook, env);
 	}
-	mlx_hook(env->mlx->win, 17, 0, &ft_exit, env);
+	mlx_hook(env->mlx->win, 33, 1L << 17, &ft_exit, env);
+//	mlx_hook(env->mlx->win, 17, 0, &ft_exit, env);
 	mlx_loop(env->mlx->mlx_ptr);
 	return (0);
 }
