@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 13:40:07 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/27 18:36:14 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/30 13:37:47 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_calcul_fractol(t_env *env)
 	env->row = 0;
 	while (env->row < env->screen_h)
 	{
-		env->col = 0;
+		env->col = -1;
 		while (env->col < env->screen_w)
 		{
 			if (env->iter < env->iter_max)
@@ -76,19 +76,19 @@ int	ft_fractol(t_env *env)
 	mlx_loop_hook(env->mlx->mlx_ptr, &ft_fractol_loop, env);
 	if (env->fract == 1)
 	{
-		mlx_hook(env->mlx->win, KEY_PRESS, 1L << 0, &ft_jul_key_press, env);
+//		mlx_hook(env->mlx->win, KEY_PRESS, 1L << 0, &ft_jul_key_press, env);
 
-//		mlx_hook(env->mlx->win, KEY_PRESS, 0, &ft_jul_key_press, env);
-//		mlx_hook(env->mlx->win, 6, 0, ft_mouse_julia, env);
-//		mlx_mouse_hook(env->mlx->win, ft_jul_mouse_hook, env);
+		mlx_hook(env->mlx->win, KEY_PRESS, 0, &ft_jul_key_press, env);
+		mlx_hook(env->mlx->win, 6, 0, ft_mouse_julia, env);
+		mlx_mouse_hook(env->mlx->win, ft_jul_mouse_hook, env);
 	}
 	else
 	{
 		mlx_hook(env->mlx->win, KEY_PRESS, 1L << 0, &ft_key_press, env);
 		mlx_mouse_hook(env->mlx->win, ft_mouse_hook, env);
 	}
-	mlx_hook(env->mlx->win, 33, 1L << 17, &ft_exit, env);
-//	mlx_hook(env->mlx->win, 17, 0, &ft_exit, env);
+//	mlx_hook(env->mlx->win, 33, 1L << 17, &ft_exit, env);
+	mlx_hook(env->mlx->win, 17, 0, &ft_exit, env);
 	mlx_loop(env->mlx->mlx_ptr);
 	return (0);
 }

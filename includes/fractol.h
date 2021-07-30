@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 18:45:40 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/28 16:14:51 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/30 13:33:47 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,15 @@
 # define KEY_RELEASE 3
 # define KEY_EXIT 53
 # define NEXT_COLOR 13
-# define LAST_COLOR 12
-//# define ARROW_UP 126
-//# define ARROW_DOWN 125
-//# define ARROW_LEFT 123
-//# define ARROW_RIGHT 124
-# define ARROW_UP 119
-# define ARROW_DOWN 115
-# define ARROW_LEFT 97
-# define ARROW_RIGHT 100
+# define LAST_COLOR 1
+# define ARROW_UP 126
+# define ARROW_DOWN 125
+# define ARROW_LEFT 123
+# define ARROW_RIGHT 124
+//# define ARROW_UP 119
+//# define ARROW_DOWN 115
+//# define ARROW_LEFT 97
+//# define ARROW_RIGHT 100
 # define JULIA 1
 # define MANDEL 2
 # define BURNING 3

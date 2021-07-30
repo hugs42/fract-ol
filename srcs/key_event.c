@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 12:40:27 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/28 16:16:38 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/30 11:15:42 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,25 @@
 int	ft_select_color(t_env *env, int i)
 {
 	if (i == 0)
-		env->color = 0x00003f;
-	if (i == 1)
-		env->color = 0x08cc0;
-	else if (i == 2)
-		env->color = 0xbb32f;
-	else if (i == 3)
-		env->color = 0x800080;
-	else if (i == 4)
-		env->color = 0x42fdddf;
-	else if (i == 5)
+		env->color = 0xeec;
+	else if (i == 1)
 		env->color = 0xccc;
-	else if (i == 6)
+	else if (i == 2)
+		env->color = 0x3aall;
+	else if (i == 3)
+		env->color = 0x00003f;
+	else if (i == 4)
 		env->color = 0x42ff;
+	else if (i == 5)
+		env->color = 0x42fdddf;
+	else if (i == 6)
+		env->color = 0x800080;
 	else if (i == 7)
-		env->color = 0xcccc29;
+		env->color = 0xcba03;
 	else if (i == 8)
-		env->color = 0xc09ff9;
+		env->color = 0xc3d03;
 	else if (i == 9)
-		env->color = 0x23fff;
+		env->color = 0xcccc29;
 	return (0);
 }
 
@@ -85,5 +85,7 @@ int	ft_mouse_hook(int key, int x, int y, t_env *env)
 		env->iter_max -= 3;
 		env->zoom /= 0.9;
 	}
+	ft_putnbr_fd(env->iter_max, 1);
+	ft_putstr_fd("\n", 1);
 	return (0);
 }
