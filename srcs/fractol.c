@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 13:40:07 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/30 13:37:47 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/30 14:01:15 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	ft_calcul_fractol(t_env *env)
 	env->row = 0;
 	while (env->row < env->screen_h)
 	{
-		env->col = -1;
-		while (env->col < env->screen_w)
+		env->col = 0;
+		while (env->col < env->screen_w - 1)
 		{
 			if (env->iter < env->iter_max)
 				env->img->addr[env->row * env->img->size_l / 4 + env->col]
@@ -26,6 +26,8 @@ int	ft_calcul_fractol(t_env *env)
 			else
 				env->img->addr[env->row * env->img->size_l / 4 + env->col]
 					= 0 * ft_iter(env);
+//			mlx_put_image_to_window(env->mlx->mlx_ptr, env->mlx->win,
+//		env->img->img_ptr, 0, 0);
 			env->col++;
 		}
 		env->row++;

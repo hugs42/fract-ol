@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 12:09:27 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/30 11:16:00 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/30 13:42:18 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_init_env(t_env *env, int fract)
 	env->z_re = 0;
 	env->z_im = 0;
 	env->iter = 0;
-	env->iter_max = 150;
+	env->iter_max = 300;
 	env->color = 0xeec;
 	env->move_x = 0.0;
 	env->move_y = 0.0;
