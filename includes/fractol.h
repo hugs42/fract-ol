@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 18:45:40 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/30 13:33:47 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/30 19:34:23 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ typedef struct s_env
 	double			y;
 	int				row;
 	int				col;
-	unsigned int	iter;
-	unsigned int	iter_max;
+	int				iter;
+	int				iter_max;
 	int				color;
 	int				screen_w;
 	int				screen_h;

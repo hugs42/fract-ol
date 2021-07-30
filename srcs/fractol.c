@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 13:40:07 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/30 14:01:15 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/30 19:47:22 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,14 @@ int	ft_calcul_fractol(t_env *env)
 	while (env->row < env->screen_h)
 	{
 		env->col = 0;
-		while (env->col < env->screen_w - 1)
+		while (env->col < env->screen_w)
 		{
 			if (env->iter < env->iter_max)
-				env->img->addr[env->row * env->img->size_l / 4 + env->col]
+				env->img->addr[env->row * env->img->size_l / 4 + env->col - 1]
 					= env->color * ft_iter(env);
 			else
-				env->img->addr[env->row * env->img->size_l / 4 + env->col]
-					= 0 * ft_iter(env);
-//			mlx_put_image_to_window(env->mlx->mlx_ptr, env->mlx->win,
-//		env->img->img_ptr, 0, 0);
+				env->img->addr[env->row * env->img->size_l / 4 + env->col - 1]
+					= 0x000000 * ft_iter(env);
 			env->col++;
 		}
 		env->row++;
@@ -53,16 +51,16 @@ int	ft_init_fractol(t_env *env)
 		env->z_re = -0.7;
 		env->z_im = 0.27015;
 	}
-	if (env->fract == 1)
+	if (env->fract == JULIA)
 		env->mlx->win = mlx_new_window(env->mlx->mlx_ptr, env->screen_w,
 				env->screen_h, "fractol: Julia");
-	else if (env->fract == 2)
+	else if (env->fract == MANDEL)
 		env->mlx->win = mlx_new_window(env->mlx->mlx_ptr, env->screen_w,
 				env->screen_h, "fractol: Mandelbrot");
-	else if (env->fract == 3)
+	else if (env->fract == BURNING)
 		env->mlx->win = mlx_new_window(env->mlx->mlx_ptr, env->screen_w,
 				env->screen_h, "fractol: Burning ship");
-	else if (env->fract == 4)
+	else if (env->fract == MULTI)
 		env->mlx->win = mlx_new_window(env->mlx->mlx_ptr, env->screen_w,
 				env->screen_h, "fractol: Multibrot");
 	env->img->img_ptr = mlx_new_image(env->mlx->mlx_ptr, env->screen_w,
@@ -76,7 +74,7 @@ int	ft_fractol(t_env *env)
 {
 	ft_init_fractol(env);
 	mlx_loop_hook(env->mlx->mlx_ptr, &ft_fractol_loop, env);
-	if (env->fract == 1)
+	if (env->fract == JULIA)
 	{
 //		mlx_hook(env->mlx->win, KEY_PRESS, 1L << 0, &ft_jul_key_press, env);
 

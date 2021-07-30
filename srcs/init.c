@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 12:09:27 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/30 13:42:18 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/07/30 19:17:15 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@ void	ft_init_img(t_env *env)
 
 int	ft_init_env(t_env *env, int fract)
 {
-	env->x = 0;
-	env->y = 0;
+	env->x = 0.0;
+	env->y = 0.0;
 	env->col = 0;
 	env->row = 0;
-	env->z_re = 0;
-	env->z_im = 0;
+	env->z_re = 0.0;
+	env->z_im = 0.0;
 	env->iter = 0;
-	env->iter_max = 300;
+	env->iter_max = 150;
 	env->color = 0xeec;
 	env->move_x = 0.0;
 	env->move_y = 0.0;
