@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 13:40:07 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/30 19:47:22 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/08/02 21:04:34 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ int	ft_calcul_fractol(t_env *env)
 		env->col = 0;
 		while (env->col < env->screen_w)
 		{
-			if (env->iter < env->iter_max)
-				env->img->addr[env->row * env->img->size_l / 4 + env->col - 1]
-					= env->color * ft_iter(env);
-			else
+			if (env->iter == env->iter_max)
 				env->img->addr[env->row * env->img->size_l / 4 + env->col - 1]
 					= 0x000000 * ft_iter(env);
+			else if (env->iter < env->iter_max)
+				env->img->addr[env->row * env->img->size_l / 4 + env->col - 1]
+					= env->color * ft_iter(env);
 			env->col++;
 		}
 		env->row++;
@@ -46,10 +46,10 @@ int	ft_init_fractol(t_env *env)
 {
 	env->iter = 0;
 	env->zoom = 1;
-	if (env->fract == 1)
+	if (env->fract == JULIA)
 	{
-		env->z_re = -0.7;
-		env->z_im = 0.27015;
+		env->z_re = 0.4;
+		env->z_im = 0.6;
 	}
 	if (env->fract == JULIA)
 		env->mlx->win = mlx_new_window(env->mlx->mlx_ptr, env->screen_w,
@@ -77,7 +77,6 @@ int	ft_fractol(t_env *env)
 	if (env->fract == JULIA)
 	{
 //		mlx_hook(env->mlx->win, KEY_PRESS, 1L << 0, &ft_jul_key_press, env);
-
 		mlx_hook(env->mlx->win, KEY_PRESS, 0, &ft_jul_key_press, env);
 		mlx_hook(env->mlx->win, 6, 0, ft_mouse_julia, env);
 		mlx_mouse_hook(env->mlx->win, ft_jul_mouse_hook, env);

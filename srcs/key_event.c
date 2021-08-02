@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 12:40:27 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/30 14:24:28 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/08/02 18:36:12 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,11 @@ int	ft_mouse_hook(int key, int x, int y, t_env *env)
 	}
 	if (key == 5)
 	{
-		env->iter_max -= 5;
+		if (env->iter_max > 100)
+			env->iter_max -= 5;
 		env->zoom /= 0.9;
 	}
-	ft_putnbr_fd(env->iter_max, 1);
+	ft_putnbr_fd(env->zoom, 1);
 	ft_putstr_fd("\n", 1);
 	return (0);
 }

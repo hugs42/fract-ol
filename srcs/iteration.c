@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 17:22:26 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/30 19:40:03 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/08/02 18:21:35 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,12 @@ int	ft_define_complex(t_env *env)
 int	ft_iter(t_env *env)
 {
 	double	x_new;
+	double y_new;
 
 	x_new = 0.0;
+	y_new = 0.0;
 	ft_define_complex(env);
-	while (env->iter < env->iter_max && (env->x * env->x + env->y * env->y) < 4)
+	while (env->iter < env->iter_max && (env->x * env->x + env->y * env->y) < 4.0)
 	{
 		if (env->fract == MULTI)
 			x_new = (env->x * env->x * env->x) - 3 * (env->x * env->y
@@ -66,7 +68,13 @@ int	ft_iter(t_env *env)
 			env->y = (3 * env->x * env->x) * env->y - (env->y * env->y
 					* env->y) + env->z_im;
 		else
-			env->y = (2 * env->x * env->y) + env->z_im;
+			y_new = (2 * env->x * env->y) + env->z_im;
+//		if (env->x == x_new && env->y == y_new)
+//		{
+//			env->iter = env->iter_max;
+//			break;
+//		}
+		env->y = y_new;
 		env->x = x_new;
 		env->iter++;
 	}
