@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 18:45:40 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/30 19:34:23 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/08/02 22:55:17 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ typedef struct s_env
 	double			move_y;
 	double			zoom;
 	int				fract;
+	double			mouse_x;
+	double			mouse_y;
 }					t_env;
 
 int		ft_init(t_env *env, int fract);

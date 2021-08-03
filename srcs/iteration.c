@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 17:22:26 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/08/02 18:21:35 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/08/03 09:24:43 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_julia_setting(t_env *env)
 {
-	env->x = 1.0 * (env->row - env->screen_w / 2.0) / (0.5 * env->zoom
-			* env->screen_w) + env->move_x;
-	env->y = 1.0 * (env->col - env->screen_h / 2.0) / (0.5 * env->zoom
+	env->x = 1.5 * (env->row - env->screen_h / 2.0) / (0.5 * env->zoom
+			* env->screen_h) + env->move_x;
+	env->y = (env->col - env->screen_h / 2.0) / (0.5 * env->zoom
 			* env->screen_h) + env->move_y;
 	return (0);
 }
@@ -55,7 +55,7 @@ int	ft_iter(t_env *env)
 	x_new = 0.0;
 	y_new = 0.0;
 	ft_define_complex(env);
-	while (env->iter < env->iter_max && (env->x * env->x + env->y * env->y) < 4.0)
+	while (env->iter < env->iter_max && (env->x * env->x + env->y * env->y) < 4)
 	{
 		if (env->fract == MULTI)
 			x_new = (env->x * env->x * env->x) - 3 * (env->x * env->y

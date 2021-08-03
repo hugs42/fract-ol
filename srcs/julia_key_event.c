@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 18:29:30 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/28 10:33:26 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/08/03 09:31:37 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ int	ft_jul_key_press(int key, t_env *env)
 		ft_exit(env);
 	else if (key == NEXT_COLOR || key == LAST_COLOR)
 		ft_color_scheme(env, key);
-	else if (key == ARROW_UP)
-		env->move_x -= 0.02 * env->zoom;
+	if (key == ARROW_UP)
+		env->move_x -= 0.05 / env->zoom;
 	else if (key == ARROW_DOWN)
-		env->move_x += 0.02 * env->zoom;
+		env->move_x += 0.05 / env->zoom;
 	else if (key == ARROW_RIGHT)
-		env->move_y += 0.02 * env->zoom;
+		env->move_y += 0.05 / env->zoom;
 	else if (key == ARROW_LEFT)
-		env->move_y -= 0.02 * env->zoom;
+		env->move_y -= 0.05 / env->zoom;
 	return (0);
 }
 
@@ -56,8 +56,8 @@ int	ft_jul_mouse_hook(int key, int x, int y, t_env *env)
 	if (key == 1)
 	{
 		env->iter_max = 150;
-		env->z_re = -0.7;
-		env->z_im = 0.27015;
+		env->z_re = -0.4;
+		env->z_im = 0.6;
 	}
 	return (0);
 }
