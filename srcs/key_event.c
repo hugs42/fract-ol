@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 12:40:27 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/08/02 23:29:18 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/08/03 13:49:12 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,25 +75,16 @@ int	ft_key_press(int key, t_env *env)
 	return (0);
 }
 
-int	ft_mouse_pos(int x, int y, t_env *env)
-{
-	env->mouse_x = x;
-	env->mouse_y = y;
-	return (0);
-}
-
 int	ft_mouse_hook(int key, int x, int y, t_env *env)
 {
 	if (key == 4)
 	{
-		env->iter_max += 5;
 		env->zoom *= 0.9;
+		env->iter_max += 1;
 	}
 	if (key == 5)
 	{
-		if (env->iter_max > 100)
-			env->iter_max -= 5;
-		if (env->zoom < 4)
+		if (env->zoom < 1)
 			env->zoom /= 0.9;
 	}
 	return (0);

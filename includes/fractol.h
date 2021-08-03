@@ -6,16 +6,16 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 18:45:40 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/08/02 22:55:17 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/08/03 13:37:58 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef FRACTOL_H
+#ifndef FRACTOL_H
 # define FRACTOL_H
 
-#include <math.h>
-#include <mlx.h>
-#include "./../libft/libft.h"
+# include <math.h>
+# include <mlx.h>
+# include "./../libft/libft.h"
 
 # define ERROR -1
 # define WIN_W 400
@@ -74,17 +74,16 @@ typedef struct s_env
 	double			move_y;
 	double			zoom;
 	int				fract;
-	double			mouse_x;
-	double			mouse_y;
 }					t_env;
 
-int		ft_init(t_env *env, int fract);
+int		ft_init(t_env *env);
 int		ft_init_fractol(t_env *env);
-int		ft_init_env(t_env *env, int fract);
+int		ft_init_env(t_env *env);
 int		ft_launch_fractol(t_env *env, int fract);
 void	ft_init_mlx(t_env *env);
 void	ft_init_img(t_env *env);
 int		ft_check_arg(char *arg);
+int		ft_calcul_fractol(t_env *env);
 int		ft_key_press(int key, t_env *env);
 int		ft_mouse_hook(int key, int x, int y, t_env *env);
 int		ft_mouse_julia(int x, int y, t_env *env);

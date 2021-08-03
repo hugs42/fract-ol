@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 13:40:07 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/08/02 21:04:34 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/08/03 14:11:32 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,18 @@ int	ft_calcul_fractol(t_env *env)
 	env->row = 0;
 	while (env->row < env->screen_h)
 	{
-		env->col = 0;
+	env->col = 1;
 		while (env->col < env->screen_w)
 		{
+//			env->col++;
 			if (env->iter == env->iter_max)
-				env->img->addr[env->row * env->img->size_l / 4 + env->col - 1]
-					= 0x000000 * ft_iter(env);
-			else if (env->iter < env->iter_max)
-				env->img->addr[env->row * env->img->size_l / 4 + env->col - 1]
-					= env->color * ft_iter(env);
+				env->img->addr[env->row * env->img->size_l / 4 + env->col]
+					= 0 * ft_iter(env);
 			env->col++;
+			if (env->iter < env->iter_max)
+				env->img->addr[env->row* env->img->size_l / 4 + env->col]
+					= env->color * ft_iter(env);
+//			env->col++;
 		}
 		env->row++;
 	}
@@ -42,18 +44,26 @@ int	ft_fractol_loop(t_env *env)
 	return (0);
 }
 
-int	ft_init_fractol(t_env *env)
+int	ft_init_julia(t_env *env)
 {
-	env->iter = 0;
-	env->zoom = 1;
 	if (env->fract == JULIA)
 	{
-		env->z_re = 0.4;
-		env->z_im = 0.6;
+		env->z_re = -0.47;
+		env->z_im = -0.56;
+		env->zoom = 0.7;
+		env->iter_max = 250;
 	}
+	return (0);
+}
+
+int	ft_init_fractol(t_env *env)
+{
 	if (env->fract == JULIA)
+	{
 		env->mlx->win = mlx_new_window(env->mlx->mlx_ptr, env->screen_w,
 				env->screen_h, "fractol: Julia");
+		ft_init_julia(env);
+	}
 	else if (env->fract == MANDEL)
 		env->mlx->win = mlx_new_window(env->mlx->mlx_ptr, env->screen_w,
 				env->screen_h, "fractol: Mandelbrot");

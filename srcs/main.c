@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 18:42:59 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/07/27 17:40:33 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/08/03 12:19:33 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	main(int argc, char **argv)
 			ft_exit_arg();
 		else
 		{
-			ft_init(&env, fract);
+			ft_init(&env);
 			ft_launch_fractol(&env, fract);
 		}
 	}

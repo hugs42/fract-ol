@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 17:22:26 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/08/03 09:24:43 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/08/03 12:31:05 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_julia_setting(t_env *env)
 {
-	env->x = 1.5 * (env->row - env->screen_h / 2.0) / (0.5 * env->zoom
+	env->y = 1.5 * (env->row - env->screen_h / 2.0) / (0.5 * env->zoom
 			* env->screen_h) + env->move_x;
-	env->y = (env->col - env->screen_h / 2.0) / (0.5 * env->zoom
+	env->x = (env->col - env->screen_h / 2.0) / (0.5 * env->zoom
 			* env->screen_h) + env->move_y;
 	return (0);
 }
@@ -50,7 +50,7 @@ int	ft_define_complex(t_env *env)
 int	ft_iter(t_env *env)
 {
 	double	x_new;
-	double y_new;
+	double	y_new;
 
 	x_new = 0.0;
 	y_new = 0.0;
@@ -59,21 +59,16 @@ int	ft_iter(t_env *env)
 	{
 		if (env->fract == MULTI)
 			x_new = (env->x * env->x * env->x) - 3 * (env->x * env->y
-				* env->y) + env->z_re;
+					* env->y) + env->z_re;
 		else
 			x_new = (env->x * env->x) - (env->y * env->y) + env->z_re;
 		if (env->fract == BURNING)
-			env->y = fabs(2 * env->x * env->y) + env->z_im;
+			y_new = fabs(2 * env->x * env->y) + env->z_im;
 		else if (env->fract == MULTI)
-			env->y = (3 * env->x * env->x) * env->y - (env->y * env->y
+			y_new = (3 * env->x * env->x) * env->y - (env->y * env->y
 					* env->y) + env->z_im;
 		else
 			y_new = (2 * env->x * env->y) + env->z_im;
-//		if (env->x == x_new && env->y == y_new)
-//		{
-//			env->iter = env->iter_max;
-//			break;
-//		}
 		env->y = y_new;
 		env->x = x_new;
 		env->iter++;

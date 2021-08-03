@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 12:09:27 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/08/02 22:56:40 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/08/03 12:35:27 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_init_img(t_env *env)
 	env->img->height = 0;
 }
 
-int	ft_init_env(t_env *env, int fract)
+int	ft_init_env(t_env *env)
 {
 	env->x = 0.0;
 	env->y = 0.0;
@@ -40,20 +40,21 @@ int	ft_init_env(t_env *env, int fract)
 	env->z_im = 0.0;
 	env->iter = 0;
 	env->iter_max = 150;
+	env->zoom = 1;
 	env->color = 0xeec;
 	env->move_x = 0.0;
 	env->move_y = 0.0;
 	env->fract = 0;
-	ft_init_mlx(env);
-	ft_init_img(env);
 	env->screen_w = WIN_W;
 	env->screen_h = WIN_H;
+	ft_init_mlx(env);
+	ft_init_img(env);
 	return (0);
 }
 
-int	ft_init(t_env *env, int fract)
+int	ft_init(t_env *env)
 {
-	ft_init_env(env, fract);
+	ft_init_env(env);
 	env->mlx->mlx_ptr = mlx_init();
 	return (0);
 }
