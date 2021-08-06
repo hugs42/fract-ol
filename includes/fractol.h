@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 18:45:40 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/08/03 13:37:58 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/08/04 21:34:56 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ int		ft_fractol(t_env *env);
 int		ft_iter(t_env *env);
 void	ft_refresh_screen(t_env *env);
 int		ft_color_scheme(t_env *env, int key);
+int		ft_color(t_env *env);
 int		ft_exit_arg(void);
 int		ft_exit(t_env *env);
 
