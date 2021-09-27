@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 18:45:40 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/08/04 21:34:56 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/09/27 12:22:53 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,10 @@ typedef struct s_env
 	int				screen_h;
 	double			z_re;
 	double			z_im;
+	double			c_re;
+	double			c_im;
+	double			new_c_re;
+	double			new_c_im;
 	double			move_x;
 	double			move_y;
 	double			zoom;

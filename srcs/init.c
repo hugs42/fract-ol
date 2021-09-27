@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 12:09:27 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/08/03 12:35:27 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/09/27 12:23:50 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,12 @@ int	ft_init_env(t_env *env)
 	env->y = 0.0;
 	env->col = 0;
 	env->row = 0;
+	env->c_re = 0.0;
+	env->c_im = 0.0;
 	env->z_re = 0.0;
 	env->z_im = 0.0;
+	env->new_c_re = 0.0;
+	env->new_c_im = 0.0;
 	env->iter = 0;
 	env->iter_max = 150;
 	env->zoom = 1;
