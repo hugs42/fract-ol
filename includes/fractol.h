@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 18:45:40 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/09/27 12:22:53 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/09/28 14:42:19 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ typedef struct s_env
 	double			z_im;
 	double			c_re;
 	double			c_im;
-	double			new_c_re;
-	double			new_c_im;
+	double			new_z_re;
+	double			new_z_im;
 	double			move_x;
 	double			move_y;
 	double			zoom;
@@ -86,6 +86,7 @@ int		ft_init_env(t_env *env);
 int		ft_launch_fractol(t_env *env, int fract);
 void	ft_init_mlx(t_env *env);
 void	ft_init_img(t_env *env);
+int		ft_init_julia(t_env *env);
 int		ft_check_arg(char *arg);
 int		ft_calcul_fractol(t_env *env);
 int		ft_key_press(int key, t_env *env);

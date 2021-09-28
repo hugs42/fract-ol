@@ -6,11 +6,23 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 12:09:27 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/09/27 12:23:50 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/09/28 14:41:19 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../includes/fractol.h"
+
+int	ft_init_julia(t_env *env)
+{
+	if (env->fract == JULIA)
+	{
+		env->c_re = 0.285;
+		env->c_im = 0.01;
+		env->zoom = 0.9;
+		env->iter_max = 250;
+	}
+	return (0);
+}
 
 void	ft_init_mlx(t_env *env)
 {
@@ -40,8 +52,8 @@ int	ft_init_env(t_env *env)
 	env->c_im = 0.0;
 	env->z_re = 0.0;
 	env->z_im = 0.0;
-	env->new_c_re = 0.0;
-	env->new_c_im = 0.0;
+	env->new_z_re = 0.0;
+	env->new_z_im = 0.0;
 	env->iter = 0;
 	env->iter_max = 150;
 	env->zoom = 1;

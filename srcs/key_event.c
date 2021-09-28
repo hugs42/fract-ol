@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 12:40:27 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/09/27 11:32:31 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/09/28 16:33:44 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_select_color(t_env *env, int i)
 	else if (i == 8)
 		env->color = 0xc3d03;
 	else if (i == 9)
-		env->color = 0xcccc29;
+		env->color = 0xacc29;
 	return (0);
 }
 
@@ -61,10 +61,7 @@ int	ft_color_scheme(t_env *env, int key)
 int	ft_key_press(int key, t_env *env)
 {
 	if (key == KEY_EXIT)
-	{
-		ft_putstr_fd("LEAVE", 1);
-	///		ft_exit(env);
-	}
+		ft_exit(env);
 	else if (key == NEXT_COLOR || key == LAST_COLOR)
 		ft_color_scheme(env, key);
 	else if (key == ARROW_UP)

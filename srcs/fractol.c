@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 13:40:07 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/08/06 19:37:41 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/09/28 14:56:29 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,6 @@ int	ft_fractol_loop(t_env *env)
 	ft_calcul_fractol(env);
 	mlx_put_image_to_window(env->mlx->mlx_ptr, env->mlx->win,
 		env->img->img_ptr, 0, 0);
-	return (0);
-}
-
-int	ft_init_julia(t_env *env)
-{
-	if (env->fract == JULIA)
-	{
-		env->z_re = -0.47;
-		env->z_im = -0.56;
-		env->zoom = 0.7;
-		env->iter_max = 250;
-	}
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 18:29:30 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/08/03 13:40:02 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/09/27 18:37:41 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ int	ft_mouse_julia(int x, int y, t_env *env)
 {
 	if (x > 0 && x < env->screen_w && y > 0 && y < env->screen_h)
 	{
-		env->z_re = (double)x / env->screen_w * 2 - 1;
-		env->z_im = (double)y / env->screen_h * 2 - 1;
+		env->c_re = (double)x / env->screen_w * 2 - 1;
+		env->c_im = (double)y / env->screen_h * 2 - 1;
 	}
 	return (0);
 }
@@ -47,13 +47,13 @@ int	ft_jul_mouse_hook(int key, int x, int y, t_env *env)
 		env->zoom /= 0.9 ;
 	if (key == 5)
 	{
-		if (env->zoom > 0.7)
+		if (env->zoom > 0.9)
 			env->zoom *= 0.9;
 	}
 	if (key == 1)
 	{
-		env->z_re = -0.47;
-		env->z_im = -0.56;
+		env->c_re = 0.285;
+		env->c_im = 0.01;
 	}
 	return (0);
 }
