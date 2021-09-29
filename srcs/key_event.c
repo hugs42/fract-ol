@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 12:40:27 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/09/28 16:33:44 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/09/29 11:27:28 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,13 @@ int	ft_key_press(int key, t_env *env)
 		ft_exit(env);
 	else if (key == NEXT_COLOR || key == LAST_COLOR)
 		ft_color_scheme(env, key);
+	if (key == SPACE)
+	{
+		if (env->color_cardioid == 0)
+			env->color_cardioid = 1;
+		else if (env->color_cardioid == 1)
+			env->color_cardioid = 0;
+	}
 	else if (key == ARROW_UP)
 		env->move_y -= 0.09 * env->zoom;
 	else if (key == ARROW_DOWN)

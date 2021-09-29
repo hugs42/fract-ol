@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 13:40:07 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/09/28 14:56:29 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/09/29 11:20:35 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ int	ft_calcul_fractol(t_env *env)
 			if (env->iter < env->iter_max)
 				env->img->addr[env->row * env->img->size_l / 4 + env->col]
 					= env->color * env->iter;
+			else if (env->color_cardioid == 1)
+				env->img->addr[env->row * env->img->size_l / 4 + env->col]
+					= 0xffff * env->iter;
 			env->col++;
 		}
 		env->row++;

@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 18:45:40 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/09/28 14:42:19 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/09/29 11:26:49 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define ARROW_DOWN 125
 # define ARROW_LEFT 123
 # define ARROW_RIGHT 124
+# define SPACE 49
 //# define ARROW_UP 119
 //# define ARROW_DOWN 115
 //# define ARROW_LEFT 97
@@ -66,6 +67,7 @@ typedef struct s_env
 	int				iter;
 	int				iter_max;
 	int				color;
+	int				color_cardioid;
 	int				screen_w;
 	int				screen_h;
 	double			z_re;
